@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educational </title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Bootstrap Icons CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+</head>
+<!--working scoll css code -->
+<style>
+  body {
+    height: 2000px;
+    /* Just to make the page scrollable */
+  }
+
+  /* Fixed position for progress bar */
+  .progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Set it to 100% to cover full width of the viewport */
+    z-index: 9999;
+    background: transparent;
+    /* Make the container's background transparent */
+  }
+
+  /* Gradient color for progress bar */
+  .progress {
+    height: 5px;
+    /* You can adjust this based on your needs */
+    background: transparent;
+    /* Transparent background for the progress track */
+  }
+
+  /* Gradient color for the progress bar */
+  .progress-bar {
+    background: linear-gradient(to right, #b301fa, #0459f8);
+    /* Gradient from pink to orange */
+    transition: width 0.1s ease-in-out;
+    /* Smooth transition for the progress bar */
+  }
+
+  /* Adjust carousel control buttons to appear further outside */
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-40%);
+    z-index: 5;
+    /* Ensure controls are on top of other content */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background for better contrast */
+    border-radius: 50%;
+    width: 60px;
+    /* Increase size of buttons */
+    height: 60px;
+  }
+
+  /* Styling the carousel control buttons */
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    /* Positioning the buttons */
+    top: center;
+    /* Center the buttons vertically */
+    transform: translateY(-50%);
+    /* Adjust vertical alignment */
+    background-color: black;
+    /* Black background for the buttons */
+    border-radius: 60%;
+    /* Circular buttons */
+    width: 40px;
+    /* Size of the button */
+    height: 40px;
+    /* Size of the button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: transparent;
+    /* Shadow for better contrast */
+  }
+
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background-color: #000000;
+    /* Darken the background on hover */
+  }
+
+  /* Styling the icons inside the buttons */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    font-size: 20px;
+    /* Size of the icon */
+    color: white;
+    /* White color for the arrows */
+  }
+
+  /* Adjust left button positioning */
+  .carousel-control-prev {
+    left: -43px;
+    /* Move the previous button outside */
+  }
+
+  /* Adjust right button positioning */
+  .carousel-control-next {
+    right: -43px;
+    /* Move the next button outside */
+  }
+
+  /* Speed up the transition for the carousel */
+  .carousel-inner {
+    transition: transform 0.4s ease-in-out;
+    /* Adjust duration to make it faster */
+  }
+
+  /* You can also modify the sliding speed of the carousel items when using JavaScript */
+  .carousel-item-next,
+  .carousel-item-prev,
+  .carousel-item.active {
+    transition: transform 0.4s ease-in-out !important;
+    /* Force a quicker transition for active items */
+  }
+
+  /* Promo Banner Styling */
+  .promo-banner {
+    background-color: #f7e1a1;
+    /* Light background for visibility */
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .promo-content {
+    display: flex;
+    flex-direction: row;
+    animation: scroll-banner 15s linear infinite;
+    /* Animation effect */
+  }
+
+  .promo-item {
+    margin-right: 50px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .promo-item a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+
+  .promo-item a span {
+    color: #e11d48;
+    /* Highlight color for the promo code */
+  }
+
+  /* Animation effect to scroll the banner */
+  @keyframes scroll-banner {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Optional: Mobile responsiveness */
+  @media (max-width: 768px) {
+    .promo-item {
+      font-size: 14px;
+    }
+  }
+</style>
+
+
+<body>
+
+  <!-- Promotional Banner Section -->
+  <div class="promo-banner">
+    <div class="promo-content">
+      <div class="promo-item">
+        <a href="#" style="pointer-events: none;">
+          <span>FLAT 10% Off (Maximum Discount Rs.50) Use Code - BWSPECIAL10</span>
+        </a>
+      </div>
+      <div class="promo-item">
+        <a href="/promo-best-seller/best-seller/03AC998EBDC2">
+          Grab Bestselling Books upto 50% Off!
+        </a>
+      </div>
+      <div class="promo-item">
+        <a href="#" style="pointer-events: none;">
+          <span>FLAT 10% Off (Maximum Discount Rs.50) Use Code - BWSPECIAL10</span>
+        </a>
+      </div>
+      <div class="promo-item">
+        <a href="/promo-best-seller/best-seller/03AC998EBDC2">
+          Grab Bestselling Books upto 50% Off!
+        </a>
+      </div>
+      <div class="promo-item">
+        <a href="#" style="pointer-events: none;">
+          <span>FLAT 10% Off (Maximum Discount Rs.50) Use Code - BWSPECIAL10</span>
+        </a>
+      </div>
+      <div class="promo-item">
+        <a href="/promo-best-seller/best-seller/03AC998EBDC2">
+          Grab Bestselling Books upto 50% Off!
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-light" style="background-color: #95cef7; color: rgb(30, 25, 25);">
+    <div class="container-fluid justify-content-center">
+      <!-- Logo with adjusted size -->
+      <a class="navbar-brand" href="#">
+        <img src="images/logo-white.png" alt="Logo" class="d-inline-block align-text-top"
+          style="height: 40px; width: auto;">
+      </a>
+
+      <!-- Navbar links with icons and book-related names -->
+
+      <ul class="nav">
+
+        <li class="nav-item"><a class="nav-link" href="browse-books.html"><i class="fas fa-book-open"></i> Browse
+            Books</a></li>
+        <li class="nav-item"><a class="nav-link" href="bestsellers.html"><i class="fas fa-bookmark"></i> Bestsellers</a>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="cart.html"><i class="fas fa-cart-plus"></i> Cart</a></li>
+        <li class="nav-item"><a class="nav-link" href="account.html"><i class="fas fa-user"></i> My Account</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+
+  </div>
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress">
+      <div class="progress-bar bg-primary" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+        aria-valuemax="100"></div>
+    </div>
+    <div class="percentage-text" id="percentage-text"></div>
+  </div>
+
+  </nav>
+
+
+  <!-- Main Content -->
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="container text-center">
+      <h1>Welcome to Book World</h1>
+      <p>Discover books across various genres, from Fiction to Anime and Blog Books!</p>
+
+      <!-- Anime Books Section -->
+      <div class="my-5">
+        <h2>Anime Books</h2>
+        <div id="animeBooksCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <!-- Slide 1: Anime Books -->
+            <div class="carousel-item active">
+              <div class="row g-4 justify-content-center">
+                <!-- Anime Book 1 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Anime Book 1">
+                    <div class="card-body">
+                      <h5 class="card-title">Naruto: The Hidden Leaf</h5>
+                      <p class="card-text">The story of Naruto Uzumaki, a young ninja with dreams of becoming the
+                        strongest.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Anime Book 2 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Anime Book 2">
+                    <div class="card-body">
+                      <h5 class="card-title">Attack on Titan</h5>
+                      <p class="card-text">Humanity's fight for survival against the mysterious Titans that threaten
+                        their existence.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Anime Book 3 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Anime Book 3">
+                    <div class="card-body">
+                      <h5 class="card-title">My Hero Academia</h5>
+                      <p class="card-text">The story of Izuku Midoriya, a young boy born without powers in a world full
+                        of heroes.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Anime Book 4 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Anime Book 4">
+                    <div class="card-body">
+                      <h5 class="card-title">Demon Slayer</h5>
+                      <p class="card-text">Tanjiro Kamado's journey to avenge his family and cure his sister from a
+                        demon curse.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: More Anime Books -->
+            <div class="carousel-item">
+              <div class="row g-4 justify-content-center">
+                <!-- Anime Book 5 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Anime Book 5">
+                    <div class="card-body">
+                      <h5 class="card-title">One Piece</h5>
+                      <p class="card-text">Follow Monkey D. Luffy and his pirate crew as they search for the legendary
+                        treasure known as One Piece.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Anime Book 6 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Anime Book 6">
+                    <div class="card-body">
+                      <h5 class="card-title">Sword Art Online</h5>
+                      <p class="card-text">A group of players get trapped in a virtual reality game, and the stakes are
+                        real—if you die in the game, you die in real life.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Anime Book 7 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Anime Book 7">
+                    <div class="card-body">
+                      <h5 class="card-title">Fullmetal Alchemist</h5>
+                      <p class="card-text">Two brothers use alchemy to search for the Philosopher's Stone in order to
+                        restore their bodies.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Anime Book 8 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Anime Book 8">
+                    <div class="card-body">
+                      <h5 class="card-title">Tokyo Ghoul</h5>
+                      <p class="card-text">Ken Kaneki’s life is changed when he is turned into a half-ghoul after a
+                        brutal attack.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#animeBooksCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#animeBooksCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Fiction Books Section -->
+      <div class="my-5">
+        <h2>Fiction Books</h2>
+        <div id="fictionBooksCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <!-- Slide 1: Fiction Books -->
+            <div class="carousel-item active">
+              <div class="row g-4 justify-content-center">
+                <!-- Fiction Book 1 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fiction Book 1">
+                    <div class="card-body">
+                      <h5 class="card-title">The Great Gatsby</h5>
+                      <p class="card-text">A novel by F. Scott Fitzgerald exploring themes of decadence, idealism, and
+                        resistance to change.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fiction Book 2 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fiction Book 2">
+                    <div class="card-body">
+                      <h5 class="card-title">1984</h5>
+                      <p class="card-text">George Orwell's dystopian novel critiquing totalitarianism and surveillance
+                        in an oppressive society.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fiction Book 3 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fiction Book 3">
+                    <div class="card-body">
+                      <h5 class="card-title">Pride and Prejudice</h5>
+                      <p class="card-text">Jane Austen's classic about love, marriage, and social class in 19th-century
+                        England.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fiction Book 4 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fiction Book 4">
+                    <div class="card-body">
+                      <h5 class="card-title">Moby-Dick</h5>
+                      <p class="card-text">Herman Melville's tale of obsession and revenge as Captain Ahab hunts the
+                        white whale.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: More Fiction Books -->
+            <div class="carousel-item">
+              <div class="row g-4 justify-content-center">
+                <!-- Fiction Book 5 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fiction Book 5">
+                    <div class="card-body">
+                      <h5 class="card-title">War and Peace</h5>
+                      <p class="card-text">Leo Tolstoy's epic about the Napoleonic Wars and the personal struggles of
+                        Russian aristocrats.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fiction Book 6 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fiction Book 6">
+                    <div class="card-body">
+                      <h5 class="card-title">The Catcher in the Rye</h5>
+                      <p class="card-text">J.D. Salinger's story of Holden Caulfield, a young man struggling with
+                        alienation and identity.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fiction Book 7 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fiction Book 7">
+                    <div class="card-body">
+                      <h5 class="card-title">The Odyssey</h5>
+                      <p class="card-text">Homer's epic telling the story of Odysseus' perilous journey home after the
+                        Trojan War.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fiction Book 8 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fiction Book 8">
+                    <div class="card-body">
+                      <h5 class="card-title">Brave New World</h5>
+                      <p class="card-text">Aldous Huxley's dystopian novel exploring a society driven by consumerism and
+                        genetic engineering.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#fictionBooksCarousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#fictionBooksCarousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <!-- Non-Fiction Books Section -->
+      <div class="my-5">
+        <h2>Non-Fiction Books</h2>
+        <div id="nonFictionBooksCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <!-- Slide 1: Non-Fiction Books -->
+            <div class="carousel-item active">
+              <div class="row g-4 justify-content-center">
+                <!-- Non-Fiction Book 1 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Non-Fiction Book 1">
+                    <div class="card-body">
+                      <h5 class="card-title">Educated</h5>
+                      <p class="card-text">Tara Westover's memoir about growing up in a strict, survivalist family in
+                        rural Idaho and seeking education.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Non-Fiction Book 2 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Non-Fiction Book 2">
+                    <div class="card-body">
+                      <h5 class="card-title">Sapiens</h5>
+                      <p class="card-text">Yuval Noah Harari's exploration of the history of humankind from the Stone
+                        Age to the modern age.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Non-Fiction Book 3 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Non-Fiction Book 3">
+                    <div class="card-body">
+                      <h5 class="card-title">Becoming</h5>
+                      <p class="card-text">Michelle Obama's memoir about her journey from Chicago to the White House.
+                      </p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Non-Fiction Book 4 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Non-Fiction Book 4">
+                    <div class="card-body">
+                      <h5 class="card-title">The Immortal Life of Henrietta Lacks</h5>
+                      <p class="card-text">Rebecca Skloot's story of Henrietta Lacks and the immortal cell line that
+                        changed science.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: More Non-Fiction Books -->
+            <div class="carousel-item">
+              <div class="row g-4 justify-content-center">
+                <!-- Non-Fiction Book 5 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Non-Fiction Book 5">
+                    <div class="card-body">
+                      <h5 class="card-title">The Wright Brothers</h5>
+                      <p class="card-text">David McCullough's biography of the Wright brothers, the pioneers of
+                        aviation.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Non-Fiction Book 6 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Non-Fiction Book 6">
+                    <div class="card-body">
+                      <h5 class="card-title">Quiet</h5>
+                      <p class="card-text">Susan Cain's exploration of the power of introverts in a world that can't
+                        stop talking.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Non-Fiction Book 7 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Non-Fiction Book 7">
+                    <div class="card-body">
+                      <h5 class="card-title">Outliers</h5>
+                      <p class="card-text">Malcolm Gladwell's investigation into the factors that contribute to high
+                        levels of success.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Non-Fiction Book 8 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Non-Fiction Book 8">
+                    <div class="card-body">
+                      <h5 class="card-title">The Subtle Art of Not Giving a F*ck</h5>
+                      <p class="card-text">Mark Manson's no-nonsense guide to living a better life by caring less about
+                        things that don't matter.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#nonFictionBooksCarousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#nonFictionBooksCarousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <!-- Fantasy Books Section -->
+      <div class="my-5">
+        <h2>Fantasy Books</h2>
+        <div id="fantasyBooksCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <!-- Slide 1: Fantasy Books -->
+            <div class="carousel-item active">
+              <div class="row g-4 justify-content-center">
+                <!-- Fantasy Book 1 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fantasy Book 1">
+                    <div class="card-body">
+                      <h5 class="card-title">The Hobbit</h5>
+                      <p class="card-text">J.R.R. Tolkien's tale of Bilbo Baggins' unexpected journey to reclaim
+                        treasure from a dragon.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fantasy Book 2 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fantasy Book 2">
+                    <div class="card-body">
+                      <h5 class="card-title">Harry Potter and the Sorcerer's Stone</h5>
+                      <p class="card-text">J.K. Rowling's first book in the magical series about a young wizard's
+                        adventures at Hogwarts.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fantasy Book 3 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fantasy Book 3">
+                    <div class="card-body">
+                      <h5 class="card-title">The Name of the Wind</h5>
+                      <p class="card-text">Patrick Rothfuss's story of Kvothe, a magically gifted young man with a
+                        legendary past.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fantasy Book 4 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fantasy Book 4">
+                    <div class="card-body">
+                      <h5 class="card-title">Mistborn</h5>
+                      <p class="card-text">Brandon Sanderson's epic fantasy novel about a group of rebels with magical
+                        abilities trying to overthrow an empire.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: More Fantasy Books -->
+            <div class="carousel-item">
+              <div class="row g-4 justify-content-center">
+                <!-- Fantasy Book 5 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fantasy Book 5">
+                    <div class="card-body">
+                      <h5 class="card-title">The Final Empire</h5>
+                      <p class="card-text">Brandon Sanderson's first book in the Mistborn series, set in a world where
+                        the final empire rules.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fantasy Book 6 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fantasy Book 6">
+                    <div class="card-body">
+                      <h5 class="card-title">A Song of Ice and Fire</h5>
+                      <p class="card-text">George R.R. Martin's epic series, starting with "A Game of Thrones," about
+                        power struggles in a fantasy world.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fantasy Book 7 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fantasy Book 7">
+                    <div class="card-body">
+                      <h5 class="card-title">The Lies of Locke Lamora</h5>
+                      <p class="card-text">Scott Lynch's story of a master thief and his gang navigating the criminal
+                        underworld of a magical city.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Fantasy Book 8 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Fantasy Book 8">
+                    <div class="card-body">
+                      <h5 class="card-title">The Priory of the Orange Tree</h5>
+                      <p class="card-text">Samantha Shannon's epic fantasy about dragons, queens, and a world on the
+                        brink of war.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#fantasyBooksCarousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#fantasyBooksCarousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Biography Books Section -->
+      <div class="my-5">
+        <h2>Biography Books</h2>
+        <div id="biographyBooksCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <!-- Slide 1: Biography Books -->
+            <div class="carousel-item active">
+              <div class="row g-4 justify-content-center">
+                <!-- Biography Book 1 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Biography Book 1">
+                    <div class="card-body">
+                      <h5 class="card-title">Steve Jobs</h5>
+                      <p class="card-text">Walter Isaacson's biography of Steve Jobs, the visionary co-founder of Apple.
+                      </p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Biography Book 2 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Biography Book 2">
+                    <div class="card-body">
+                      <h5 class="card-title">Long Hard Road</h5>
+                      <p class="card-text">The inspiring biography of a young boy overcoming obstacles and achieving
+                        success against all odds.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Biography Book 3 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Biography Book 3">
+                    <div class="card-body">
+                      <h5 class="card-title">Becoming</h5>
+                      <p class="card-text">Michelle Obama's memoir about her journey from Chicago to the White House.
+                      </p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Biography Book 4 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Biography Book 4">
+                    <div class="card-body">
+                      <h5 class="card-title">The Diary of a Young Girl</h5>
+                      <p class="card-text">The powerful and emotional diary of Anne Frank, a young Jewish girl during
+                        WWII.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: More Biography Books -->
+            <div class="carousel-item">
+              <div class="row g-4 justify-content-center">
+                <!-- Biography Book 5 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Biography Book 5">
+                    <div class="card-body">
+                      <h5 class="card-title">I Am Malala</h5>
+                      <p class="card-text">Malala Yousafzai's memoir about her fight for education and women's rights in
+                        Pakistan.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Biography Book 6 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Biography Book 6">
+                    <div class="card-body">
+                      <h5 class="card-title">The Glass Castle</h5>
+                      <p class="card-text">Jeanette Walls's memoir about growing up in a dysfunctional, nomadic family.
+                      </p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Biography Book 7 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Biography Book 7">
+                    <div class="card-body">
+                      <h5 class="card-title">When Breath Becomes Air</h5>
+                      <p class="card-text">Paul Kalanithi's memoir about his journey as a neurosurgeon diagnosed with
+                        terminal cancer.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Biography Book 8 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Biography Book 8">
+                    <div class="card-body">
+                      <h5 class="card-title">The Wright Brothers</h5>
+                      <p class="card-text">David McCullough's biography about the pioneering inventors of the airplane,
+                        Wilbur and Orville Wright.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#biographyBooksCarousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#biographyBooksCarousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Historical Fiction Books Section -->
+      <div class="my-5">
+        <h2>Historical Fiction Books</h2>
+        <div id="historicalFictionBooksCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <!-- Slide 1: Historical Fiction Books -->
+            <div class="carousel-item active">
+              <div class="row g-4 justify-content-center">
+                <!-- Historical Fiction Book 1 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Historical Fiction Book 1">
+                    <div class="card-body">
+                      <h5 class="card-title">The Book Thief</h5>
+                      <p class="card-text">Markus Zusak's tale of a young girl growing up in Nazi Germany, as told by
+                        Death.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Historical Fiction Book 2 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Historical Fiction Book 2">
+                    <div class="card-body">
+                      <h5 class="card-title">All the Light We Cannot See</h5>
+                      <p class="card-text">Anthony Doerr's novel about a blind French girl and a German boy during WWII.
+                      </p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Historical Fiction Book 3 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Historical Fiction Book 3">
+                    <div class="card-body">
+                      <h5 class="card-title">The Nightingale</h5>
+                      <p class="card-text">Kristin Hannah's novel about two sisters in France during WWII.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Historical Fiction Book 4 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Historical Fiction Book 4">
+                    <div class="card-body">
+                      <h5 class="card-title">The Pillars of the Earth</h5>
+                      <p class="card-text">Ken Follett's epic novel about the building of a cathedral in medieval
+                        England.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: More Historical Fiction Books -->
+            <div class="carousel-item">
+              <div class="row g-4 justify-content-center">
+                <!-- Historical Fiction Book 5 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Historical Fiction Book 5">
+                    <div class="card-body">
+                      <h5 class="card-title">The Other Boleyn Girl</h5>
+                      <p class="card-text">Philippa Gregory's tale about Mary Boleyn, the sister of Anne Boleyn, and her
+                        relationship with Henry VIII.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Historical Fiction Book 6 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Historical Fiction Book 6">
+                    <div class="card-body">
+                      <h5 class="card-title">The Tattooist of Auschwitz</h5>
+                      <p class="card-text">Heather Morris's story of love and survival in the Auschwitz-Birkenau
+                        concentration camp.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Historical Fiction Book 7 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Historical Fiction Book 7">
+                    <div class="card-body">
+                      <h5 class="card-title">Atonement</h5>
+                      <p class="card-text">Ian McEwan's novel about love, guilt, and the consequences of a lie during
+                        WWII.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Historical Fiction Book 8 -->
+                <div class="col-md-4 col-lg-3">
+                  <div class="card h-100">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Historical Fiction Book 8">
+                    <div class="card-body">
+                      <h5 class="card-title">The Paris Architect</h5>
+                      <p class="card-text">Charles Belfoure's novel about an architect who designs secret hiding places
+                        for Jews in WWII Paris.</p>
+                      <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#historicalFictionBooksCarousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#historicalFictionBooksCarousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+
+
+  <!--Alignment-->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+
+
+  <!-- Footer -->
+  <footer class="bg-light text-center py-3">
+    <p>© 2024 Your Website</p>
+  </footer>
+
+  <!-- Bootstrap 5 JS (Optional for interactive components like the navbar) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+
+
+<!--script of working scroll bar-->
+<script>
+  window.addEventListener('scroll', function () {
+    // Get the total height of the document minus the visible height
+    let documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+    // Get the current scroll position
+    let scrollPosition = window.scrollY;
+
+    // Calculate the scroll percentage
+    let scrollPercent = (scrollPosition / documentHeight) * 100;
+
+    // Update the progress bar width
+    let progressBar = document.getElementById('progress-bar');
+    progressBar.style.width = scrollPercent + '%';
+    progressBar.setAttribute('aria-valuenow', scrollPercent);
+
+
+  });
+</script>
+
+
+</html>

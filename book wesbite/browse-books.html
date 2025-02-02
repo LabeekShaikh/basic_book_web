@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Books - Online Bookstore</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .category-btn {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-body img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-light" style="background-color: #95cef7;">
+        <div class="container-fluid justify-content-center">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Category Filters -->
+    <div class="container my-4">
+        <h4>Filter by Category</h4>
+        <div class="btn-group">
+            <button type="button" class="btn btn-outline-primary category-btn" onclick="filterBooks('fiction')">Fiction</button>
+            <button type="button" class="btn btn-outline-primary category-btn" onclick="filterBooks('non-fiction')">Non-Fiction</button>
+            <button type="button" class="btn btn-outline-primary category-btn" onclick="filterBooks('science-fiction')">Science Fiction</button>
+            <button type="button" class="btn btn-outline-primary category-btn" onclick="filterBooks('fantasy')">Fantasy</button>
+            <button type="button" class="btn btn-outline-primary category-btn" onclick="filterBooks('biography')">Biography</button>
+            <button type="button" class="btn btn-outline-primary category-btn" onclick="filterBooks('historical')">Historical Fiction</button>
+            <button type="button" class="btn btn-outline-primary category-btn" onclick="showAllBooks()">Show All</button>
+        </div>
+    </div>
+
+    <!-- Browse Books Section -->
+    <div class="container my-5" id="book-list">
+        <h2>Browse Books</h2>
+        <div class="row">
+            <!-- Book 1 -->
+            <div class="col-md-4 book fiction">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Book 1">
+                    <div class="card-body">
+                        <h5 class="card-title">The Great Gatsby</h5>
+                        <p class="card-text">A novel by F. Scott Fitzgerald exploring themes of decadence, idealism, and resistance to change.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal" onclick="openModal('The Great Gatsby', 'F. Scott Fitzgerald', 'A novel by F. Scott Fitzgerald exploring themes of decadence, idealism, and resistance to change.', 'https://via.placeholder.com/200')">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="col-md-4 book non-fiction">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Book 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Educated</h5>
+                        <p class="card-text">A memoir by Tara Westover about growing up in a survivalist family and striving for education.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal" onclick="openModal('Educated', 'Tara Westover', 'A memoir by Tara Westover about growing up in a survivalist family and striving for education.', 'https://via.placeholder.com/200')">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="col-md-4 book science-fiction">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Book 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Dune</h5>
+                        <p class="card-text">Frank Herbert's epic science fiction novel set on the desert planet Arrakis.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal" onclick="openModal('Dune', 'Frank Herbert', 'Frank Herbert\'s epic science fiction novel set on the desert planet Arrakis.', 'https://via.placeholder.com/200')">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 4 -->
+            <div class="col-md-4 book fantasy">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Book 4">
+                    <div class="card-body">
+                        <h5 class="card-title">The Hobbit</h5>
+                        <p class="card-text">J.R.R. Tolkien's classic fantasy adventure about Bilbo Baggins.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal" onclick="openModal('The Hobbit', 'J.R.R. Tolkien', 'J.R.R. Tolkien\'s classic fantasy adventure about Bilbo Baggins.', 'https://via.placeholder.com/200')">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 5 -->
+            <div class="col-md-4 book biography">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Book 5">
+                    <div class="card-body">
+                        <h5 class="card-title">Steve Jobs</h5>
+                        <p class="card-text">A biography of Steve Jobs by Walter Isaacson that captures the life and work of the Apple founder.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal" onclick="openModal('Steve Jobs', 'Walter Isaacson', 'A biography of Steve Jobs by Walter Isaacson that captures the life and work of the Apple founder.', 'https://via.placeholder.com/200')">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 6 -->
+            <div class="col-md-4 book historical">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Book 6">
+                    <div class="card-body">
+                        <h5 class="card-title">The Book Thief</h5>
+                        <p class="card-text">Markus Zusak's historical novel about a young girl living in Nazi Germany.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal" onclick="openModal('The Book Thief', 'Markus Zusak', 'Markus Zusak\'s historical novel about a young girl living in Nazi Germany.', 'https://via.placeholder.com/200')">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 7 -->
+            <div class="col-md-4 book fiction">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Book 7">
+                    <div class="card-body">
+                        <h5 class="card-title">1984</h5>
+                        <p class="card-text">George Orwell's dystopian novel about a totalitarian regime.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal" onclick="openModal('1984', 'George Orwell', 'George Orwell\'s dystopian novel about a totalitarian regime.', 'https://via.placeholder.com/200')">View Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional books would follow similar structure -->
+
+        </div>
+    </div>
+
+    <!-- Book Details Modal -->
+    <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookModalLabel">Book Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="https://via.placeholder.com/200" alt="Book Image" class="img-fluid">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 id="bookTitle"></h5>
+                            <p><strong>Author:</strong> <span id="bookAuthor"></span></p>
+                            <p id="bookDescription"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center p-4" style="background-color: #333; color: white;">
+        <p>&copy; 2024 Online Bookstore. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // Function to filter books based on category
+        function filterBooks(category) {
+            let books = document.querySelectorAll('.book');
+            books.forEach(book => {
+                if (book.classList.contains(category)) {
+                    book.style.display = 'block';
+                } else {
+                    book.style.display = 'none';
+                }
+            });
+        }
+
+        // Function to show all books
+        function showAllBooks() {
+            let books = document.querySelectorAll('.book');
+            books.forEach(book => {
+                book.style.display = 'block';
+            });
+        }
+
+        // Function to open the modal and populate it with book details
+        function openModal(title, author, description, imgSrc) {
+            document.getElementById('bookTitle').innerText = title;
+            document.getElementById('bookAuthor').innerText = author;
+            document.getElementById('bookDescription').innerText = description;
+            document.querySelector('#bookModal .modal-body img').src = imgSrc;
+        }
+    </script>
+
+</body>
+
+</html>

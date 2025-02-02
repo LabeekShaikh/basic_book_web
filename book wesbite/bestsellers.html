@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestsellers - Online Bookstore</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Smooth fade-out effect */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
+
+        /* Center the books container when filtering */
+        .books-container-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+            justify-content: center;
+            /* Ensures the books are centered after filtering */
+        }
+
+        /* Ensuring proper spacing and responsiveness for book cards */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+            max-width: 300px;
+            padding: 10px;
+            border-radius: 8px;
+            /* Rounded corners for the cards */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow */
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Adjustments for general padding/margins */
+        .container {
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-top: 40px;
+            /* Ensure enough space at the top */
+        }
+
+        /* Centering the heading */
+        .text-center {
+            text-align: center;
+        }
+
+        /* Ensure proper spacing for book cards */
+        .row {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Sticky footer style */
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .no-results {
+            color: #ff4d4d;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Adjustments for mobile responsiveness */
+        @media (max-width: 768px) {
+            .card {
+                max-width: 100%;
+                /* Make cards fill width on smaller screens */
+                margin-bottom: 20px;
+                /* Less bottom margin on mobile */
+            }
+
+            .row {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Fade in the books that match the filter after a short delay */
+        .card:not(.fade-out) {
+            opacity: 1;
+            transition: opacity 0.3s ease-in;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-light" style="background-color: #95cef7;">
+        <div class="container-fluid justify-content-center">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="breadcrumb" class="container my-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Bestsellers</li>
+        </ol>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="container search-container">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search for books..."
+            onkeyup="filterBooks()">
+    </div>
+
+    <!-- Bestsellers Section -->
+    <div class="container my-5">
+        <h2 class="text-center">Bestselling Books</h2>
+
+
+
+        <div class="row" id="booksContainer">
+            <!-- Book 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bestseller 1">
+                    <div class="card-body">
+                        <h5 class="card-title">The Silent Patient</h5>
+                        <p class="card-text">A psychological thriller about a woman who shoots her husband and then
+                            stops speaking.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal"
+                            onclick="openModal('The Silent Patient', 'Alex Michaelides', 'A psychological thriller about a woman who shoots her husband and then stops speaking.', 'https://via.placeholder.com/200')">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bestseller 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Where the Crawdads Sing</h5>
+                        <p class="card-text">A story of a young woman who grows up isolated in the swamps of North
+                            Carolina.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal"
+                            onclick="openModal('Where the Crawdads Sing', 'Delia Owens', 'A story of a young woman who grows up isolated in the swamps of North Carolina.', 'https://via.placeholder.com/200')">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bestseller 3">
+                    <div class="card-body">
+                        <h5 class="card-title">The Midnight Library</h5>
+                        <p class="card-text">A novel about a woman who finds herself in a library between life and
+                            death, able to explore different versions of her life.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal"
+                            onclick="openModal('The Midnight Library', 'Matt Haig', 'A novel about a woman who finds herself in a library between life and death, able to explore different versions of her life.', 'https://via.placeholder.com/200')">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 4 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bestseller 4">
+                    <div class="card-body">
+                        <h5 class="card-title">The Seven Husbands of Evelyn Hugo</h5>
+                        <p class="card-text">A legendary Hollywood actress tells the story of her seven husbands and her
+                            extraordinary life.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal"
+                            onclick="openModal('The Seven Husbands of Evelyn Hugo', 'Taylor Jenkins Reid', 'A legendary Hollywood actress tells the story of her seven husbands and her extraordinary life.', 'https://via.placeholder.com/200')">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 5 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bestseller 5">
+                    <div class="card-body">
+                        <h5 class="card-title">The Song of Achilles</h5>
+                        <p class="card-text">A modern retelling of the Iliad focusing on the relationship between
+                            Achilles and Patroclus.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal"
+                            onclick="openModal('The Song of Achilles', 'Madeline Miller', 'A modern retelling of the Iliad focusing on the relationship between Achilles and Patroclus.', 'https://via.placeholder.com/200')">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 6 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bestseller 6">
+                    <div class="card-body">
+                        <h5 class="card-title">Circe</h5>
+                        <p class="card-text">A retelling of the Greek myth of Circe, the enchantress who turns Odysseus'
+                            men into pigs.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal"
+                            onclick="openModal('Circe', 'Madeline Miller', 'A retelling of the Greek myth of Circe, the enchantress who turns Odysseus\' men into pigs.', 'https://via.placeholder.com/200')">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 7 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bestseller 7">
+                    <div class="card-body">
+                        <h5 class="card-title">Educated</h5>
+                        <p class="card-text">A memoir about a woman who grows up in a strict and abusive household but
+                            eventually escapes to pursue an education.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal"
+                            onclick="openModal('Educated', 'Tara Westover', 'A memoir about a woman who grows up in a strict and abusive household but eventually escapes to pursue an education.', 'https://via.placeholder.com/200')">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 8 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bestseller 8">
+                    <div class="card-body">
+                        <h5 class="card-title">Normal People</h5>
+                        <p class="card-text">A story about two teenagers navigating friendship, love, and growing up in
+                            contemporary Ireland.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal"
+                            onclick="openModal('Normal People', 'Sally Rooney', 'A story about two teenagers navigating friendship, love, and growing up in contemporary Ireland.', 'https://via.placeholder.com/200')">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 9 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bestseller 9">
+                    <div class="card-body">
+                        <h5 class="card-title">The Light We Lost</h5>
+                        <p class="card-text">A poignant story of love, loss, and fate over the course of several years.
+                        </p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal"
+                            onclick="openModal('The Light We Lost', 'Jill Santopolo', 'A poignant story of love, loss, and fate over the course of several years.', 'https://via.placeholder.com/200')">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 10 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bestseller 10">
+                    <div class="card-body">
+                        <h5 class="card-title">Little Fires Everywhere</h5>
+                        <p class="card-text">A novel about family secrets, race, and privilege, set in a small town in
+                            Ohio.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal"
+                            onclick="openModal('Little Fires Everywhere', 'Celeste Ng', 'A novel about family secrets, race, and privilege, set in a small town in Ohio.', 'https://via.placeholder.com/200')">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 11 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bestseller 11">
+                    <div class="card-body">
+                        <h5 class="card-title">The Night Circus</h5>
+                        <p class="card-text">A magical realism novel about two magicians who compete in a mystical,
+                            night-time circus.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal"
+                            onclick="openModal('The Night Circus', 'Erin Morgenstern', 'A magical realism novel about two magicians who compete in a mystical, night-time circus.', 'https://via.placeholder.com/200')">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 12 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bestseller 12">
+                    <div class="card-body">
+                        <h5 class="card-title">Anxious People</h5>
+                        <p class="card-text">A quirky, humorous novel about a group of strangers trapped in a bank
+                            robbery turned hostage situation.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal"
+                            onclick="openModal('Anxious People', 'Fredrik Backman', 'A quirky, humorous novel about a group of strangers trapped in a bank robbery turned hostage situation.', 'https://via.placeholder.com/200')">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 13 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bestseller 13">
+                    <div class="card-body">
+                        <h5 class="card-title">The Tattooist of Auschwitz</h5>
+                        <p class="card-text">A historical novel based on the true story of a Jewish man who falls in
+                            love with a prisoner at Auschwitz.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal"
+                            onclick="openModal('The Tattooist of Auschwitz', 'Heather Morris', 'A historical novel based on the true story of a Jewish man who falls in love with a prisoner at Auschwitz.', 'https://via.placeholder.com/200')">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 14 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bestseller 14">
+                    <div class="card-body">
+                        <h5 class="card-title">Before We Were Strangers</h5>
+                        <p class="card-text">A romance novel about a lost connection between two people and their second
+                            chance at love.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal"
+                            onclick="openModal('Before We Were Strangers', 'Renée Carlino', 'A romance novel about a lost connection between two people and their second chance at love.', 'https://via.placeholder.com/200')">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book 15 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Bestseller 15">
+                    <div class="card-body">
+                        <h5 class="card-title">The Invisible Life of Addie LaRue</h5>
+                        <p class="card-text">A story about a woman who makes a pact to live forever but is forgotten by
+                            everyone she meets.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal"
+                            onclick="openModal('The Invisible Life of Addie LaRue', 'V.E. Schwab', 'A story about a woman who makes a pact to live forever but is forgotten by everyone she meets.', 'https://via.placeholder.com/200')">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    </div>
+
+    <!-- No Results Found -->
+    <div id="noResults" class="no-results" style="display:none;">
+        No results found.
+    </div>
+    </div>
+
+    <!-- Book Details Modal -->
+    <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookModalLabel">Book Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="https://via.placeholder.com/200" alt="Book Image" class="img-fluid">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 id="bookTitle"></h5>
+                            <p><strong>Author:</strong> <span id="bookAuthor"></span></p>
+                            <p id="bookDescription"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="redirectToCart()">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // Function to open the modal and populate it with book details
+        function openModal(title, author, description, imgSrc) {
+            document.getElementById('bookTitle').innerText = title;
+            document.getElementById('bookAuthor').innerText = author;
+            document.getElementById('bookDescription').innerText = description;
+            document.querySelector('#bookModal .modal-body img').src = imgSrc;
+        }
+
+        // Function to redirect to the Cart page when "Add to Cart" button is clicked
+        function redirectToCart() {
+            window.location.href = "cart.html";
+        }
+
+        // Function to filter books based on the search input
+        function filterBooks() {
+            let searchInput = document.getElementById('searchInput').value.toLowerCase();
+            let books = document.getElementById('booksContainer').getElementsByClassName('card');
+            let noResults = document.getElementById('noResults');
+            let resultCount = 0;
+
+            // Fade out all the books first
+            for (let i = 0; i < books.length; i++) {
+                books[i].classList.add('fade-out');
+            }
+
+            setTimeout(() => {
+                // Then filter and show only the matching books
+                for (let i = 0; i < books.length; i++) {
+                    let title = books[i].getElementsByClassName('card-title')[0].innerText.toLowerCase();
+                    let description = books[i].getElementsByClassName('card-text')[0].innerText.toLowerCase();
+
+                    if (title.includes(searchInput) || description.includes(searchInput)) {
+                        books[i].style.display = '';  // Show the book
+                        books[i].classList.remove('fade-out');  // Fade it back in
+                        resultCount++;
+                    } else {
+                        books[i].style.display = 'none';  // Hide the book
+                    }
+                }
+
+                // Display 'No results found' if no books match
+                if (resultCount === 0) {
+                    noResults.style.display = 'block';  // Show no results message
+                } else {
+                    noResults.style.display = 'none';  // Hide no results message
+                }
+            }, 300);  // Adjust this timing to match the fade-out duration
+        }
+    </script>
+
+</body>
+
+</html>
